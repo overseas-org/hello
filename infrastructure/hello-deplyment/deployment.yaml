@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    app: hello
+    service: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+      service: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+        service: hello
+    spec:
+      containers:
+      - name: hello-container
+        image: hhana982/hello:1.<version>
+        ports:
+        - containerPort: 5000
+        env: 
